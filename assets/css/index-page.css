@@ -496,6 +496,7 @@ body {
     padding: 40px;
     font-family: "Plus Jakarta Sans", sans-serif;
     height: 100%;
+    position: relative;
 }
 
 .review-card .top-image {

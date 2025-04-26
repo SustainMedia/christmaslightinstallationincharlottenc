@@ -10,3 +10,13 @@
     text-decoration: none;
     color: black;
 }
+
+.google-logo {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+}
+
+.google-logo img {
+    width: 60px;
+}
