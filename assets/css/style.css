@@ -20,3 +20,7 @@
 .google-logo img {
     width: 60px;
 }
+
+iframe {
+    display: none !important;
+}
