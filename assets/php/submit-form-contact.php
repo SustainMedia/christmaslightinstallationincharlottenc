@@ -31,14 +31,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'carpenterddswebsiteform@gmail.com';
-        $mail->Password   = 'vktt uspj uucw niow';
+        $mail->Username   = 'christmaslightcharlotte@gmail.com';
+        $mail->Password   = 'ofvi yepm kazk bpzg';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
         // Sender & recipient
-        $mail->setFrom('carpenterddswebsiteform@gmail.com', 'Christmas Light Installation Charlotte');
-        $mail->addAddress('muhammadumair25591@gmail.com');
+        $mail->setFrom('christmaslightcharlotte@gmail.com', 'Christmas Light Installation Charlotte');
+        $mail->addAddress('access@sustain-media.com');
 
         // Format services as a string
         $servicesList = implode(', ', $services);
