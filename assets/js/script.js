@@ -1,4 +1,28 @@
+// Map loading debug function
+function checkMapLoading() {
+    setTimeout(function() {
+        const iframe = document.querySelector('.w-embed iframe');
+        const fallback = document.getElementById('map-fallback');
+        
+        if (iframe) {
+            iframe.onload = function() {
+                console.log('Map loaded successfully');
+            };
+            
+            iframe.onerror = function() {
+                console.log('Map failed to load, showing fallback');
+                if (fallback) {
+                    fallback.style.display = 'block';
+                }
+            };
+        }
+    }, 1000);
+}
+
 $(document).ready(function () {
+    // Initialize map checking
+    checkMapLoading();
+    
     $('#schedule_btn_form').on('click', function (e) {
         e.preventDefault();
 

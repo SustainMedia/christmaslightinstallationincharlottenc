@@ -169,6 +169,47 @@ footer {
     }
 }
 
+.business-address {
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.business-address p {
+    margin: 5px 0;
+    color: #fff;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.business-address p strong {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.w-embed {
+    position: relative;
+}
+
+.w-embed iframe {
+    display: block;
+    width: 100% !important;
+    max-width: 432px;
+    height: 236px;
+    border: none;
+    background-color: #f0f0f0;
+}
+
+/* Ensure iframe container has proper dimensions */
+.w-iframe {
+    width: 100%;
+    max-width: 432px;
+    height: 236px;
+    overflow: hidden;
+}
+
 @media only screen and (max-width: 992px) {
     .copyright-footer-socials {
         flex-direction: column;

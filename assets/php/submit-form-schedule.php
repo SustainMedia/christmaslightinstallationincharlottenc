@@ -42,6 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $mail->setFrom('christmaslightcharlotte@gmail.com', 'Christmas Light Installation Charlotte');
         $mail->addAddress('access@sustain-media.com');
+        $mail->addAddress('getgroundskeeping@icloud.com');
+        
 
         $mail->isHTML(true);
         $mail->Subject = 'NEW Installation Request - Website Form Submission';

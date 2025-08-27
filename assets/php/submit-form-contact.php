@@ -39,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Sender & recipient
         $mail->setFrom('christmaslightcharlotte@gmail.com', 'Christmas Light Installation Charlotte');
         $mail->addAddress('access@sustain-media.com');
+        $mail->addAddress('getgroundskeeping@icloud.com');
 
         // Format services as a string
         $servicesList = implode(', ', $services);
