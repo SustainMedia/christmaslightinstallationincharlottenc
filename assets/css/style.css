@@ -21,6 +21,17 @@
     width: 60px;
 }
 
-/* iframe {
-    display: none !important;
-} */
+iframe {
+    border-radius: 8px !important;
+}
+
+.footer-GBP {
+    display: flex;
+    gap: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+    .footer-GBP{
+        flex-direction: column;
+    }
+}
