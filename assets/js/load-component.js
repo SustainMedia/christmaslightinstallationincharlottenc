@@ -1,4 +1,9 @@
 function adjustMainContentPadding() {
+    const currentPath = window.location.pathname.toLowerCase();
+    if (currentPath.endsWith('/landing-page.html') || currentPath.endsWith('landing-page.html')) {
+        return;
+    }
+
     const navbar = document.querySelector('.main-nav-box');
     const mainContent = document.querySelector('.main-content');
 

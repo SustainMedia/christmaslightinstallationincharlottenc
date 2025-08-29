@@ -17,13 +17,238 @@
     <link rel="stylesheet" href="./assets/css/footer-style.css?ver=1.1">
     <link rel="stylesheet" href="./assets/css/index-page.css?ver1.1">
 </head>
+<style>
+    .review-card .review-card-content {
+        background-color: transparent;
+        text-align: center;
+    }
+
+    .main-nav-box {
+        padding: 1rem 0px;
+        background: rgba(255, 255, 255, 0) !important;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1024;
+        box-shadow: none;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .nav-item .nav-link1 {
+        color: #ffffff;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-weight: 400;
+        font-size: 17px;
+        text-decoration: none;
+    }
+
+    /* Landing page only: white mobile toggler (hamburger) */
+    .main-nav-box .navbar-toggler {
+        border-color: none;
+    }
+    .main-nav-box .navbar-toggler:focus {
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+    }
+    .main-nav-box .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    .main-nav-box.scrolled {
+        background: rgba(0, 0, 0, 0.7) !important;
+        box-shadow: 0px 0px 50px -22px #000;
+    }
+
+    .fifth-section {
+        padding-top: 120px;
+        background-color: #00604500;
+    }
+
+    #comparison {
+        background-color: #00604412;
+    }
+
+    /* Comparison Section Styles (page-scoped) */
+    .comparison-wrapper {
+        margin-top: 20px;
+    }
+
+    .comparison-card {
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        padding: 12px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .comparison-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        min-width: 900px;
+    }
+
+    .comparison-table thead th {
+        background: #f7fbff;
+        color: #002a3a;
+        text-transform: uppercase;
+        font-weight: 800;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        text-align: center;
+        padding: 18px 16px;
+        border-top: 1px solid #e6edf3;
+        border-bottom: 1px solid #e6edf3;
+        border-right: 1px solid #e6edf3;
+    }
+
+    .comparison-table thead th:first-child {
+        border-left: 1px solid #e6edf3;
+        width: 220px;
+    }
+
+    .comparison-table tbody td {
+        padding: 18px 16px;
+        border-bottom: 1px solid #e6edf3;
+        border-right: 1px solid #e6edf3;
+        background: #ffffff;
+    }
+
+    .comparison-table tbody tr:first-child td {
+        border-top: 0;
+    }
+
+    .comparison-table tbody td:first-child {
+        border-left: 1px solid #e6edf3;
+        font-weight: 700;
+        color: #ffffff;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .comparison-table .label.negative {
+        background: #006044;
+    }
+
+    .comparison-table .label.positive {
+        background: #006044;
+    }
+
+    .comparison-table .center {
+        text-align: center;
+    }
+
+    .comparison-table .icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        font-weight: 800;
+    }
+
+    .comparison-table .icon.check {
+        color: #0a8a33;
+    }
+
+    .comparison-table .icon.cross {
+        color: #1b2e3a;
+    }
+
+    @media (max-width: 768px) {
+        .comparison-card {
+            padding: 8px;
+        }
+
+        .comparison-table thead th {
+            font-size: 12px;
+            padding: 12px 10px;
+        }
+
+        .comparison-table tbody td {
+            padding: 12px 10px;
+        }
+
+        .comparison-table .icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        #navbarSupportedContent {
+            padding-top: 15px;
+        }
+    }
+</style>
 
 <body>
 
-    <div id="nav-placeholder"></div>
+    <nav class="navbar navbar-expand-lg navbar-light main-nav-box">
+        <div class="container-fluid" id="nav-container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./assets/images/main-logo.svg" alt="">
+            </a>
+
+            <div class="hamburger-box">
+                <button class="nav-btn-1" id="number-mobile" onclick="window.location.href='tel:+16267954389'">Call
+                    (704) 271-5282</button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link1" href="index.html#about-us">About Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link1" href="index.html#reviews">Reviews</a>
+                    </li>
+
+                    <li class="nav-item dropdown position-relative">
+                        <a class="nav-link1 dropdown-toggle" href="index.html#services" id="servicesDropdown"
+                            role="button">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item"
+                                    href="residential-christmas-light-installation.html">Residential Christmas Light
+                                    Installation</a></li>
+                            <li><a class="dropdown-item" href="commercial-christmas-light-installation.html">Commercial
+                                    Christmas Light Installation</a></li>
+                            <li><a class="dropdown-item" href="permanent-christmas-light-installation.html">Permanent
+                                    Christmas Light Installation</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link1" href="areas-we-serve.html">Areas We Serve</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link1" href="contact.html">Contact Us</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="nav-right-button-box" id="number-desktop">
+                <button class="nav-btn-1" onclick="window.location.href='tel:+17043182857'">Call (704) 318-2857</button>
+            </div>
+        </div>
+    </nav>
 
     <div class="main-content">
-        <section class="service-area-section">
+
+        <section class="service-area-section" style="padding-top: 100px;">
             <div class="service-area-main-box">
                 <div class="video-background-main">
                     <div class="video-background">
@@ -128,9 +353,12 @@
                             <div class="input-boxes">
                                 <select id="schedule_service" required>
                                     <option selected disabled>Choose Service*</option>
-                                    <option value="Residential Christmas Light Installation">Residential Christmas Light Installation</option>
-                                    <option value="Commercial Christmas Light Installation">Commercial Christmas Light Installation</option>
-                                    <option value="Permanent Christmas Light Installation">Permanent Christmas Light Installation</option>
+                                    <option value="Residential Christmas Light Installation">Residential Christmas Light
+                                        Installation</option>
+                                    <option value="Commercial Christmas Light Installation">Commercial Christmas Light
+                                        Installation</option>
+                                    <option value="Permanent Christmas Light Installation">Permanent Christmas Light
+                                        Installation</option>
                                 </select>
                                 <input type="text" id="schedule_address" placeholder="Enter Full Address*" required>
                                 <input type="text" id="schedule_name" placeholder="Name*" required>
@@ -232,7 +460,134 @@
             </div>
         </section>
 
-        <section class="pb-5 third-section" id="services">
+        <section class="pb-5 third-section" id="reviews">
+            <div class="standard_container">
+                <div class="tag-box">
+                    <h5 class="tag-sec-2">REVIEWS ・ WHAT CLIENTS SAY ABOUT US</h5>
+                </div>
+                <div class="top-content-box">
+                    <h2 class="heading">Why Our Clients Choose Us for Holiday Lights</h2>
+                </div>
+
+                <div class="review-cards mt-3">
+                    <div class="row position-relative">
+                        <div class="col-12 col-md-6 col-lg-4 mt-4">
+                            <div class="review-card">
+                                <div class="google-logo"><img src="./assets/images/google-icon.webp" alt=""></div>
+                                <div class="top-image"><img
+                                        src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
+                                        alt=""></div>
+                                <div class="review-stars">
+                                    <div class="review-star"><img
+                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
+                                    <div class="review-star"><img
+                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
+                                    <div class="review-star"><img
+                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
+                                    <div class="review-star"><img
+                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
+                                    <div class="review-star"><img
+                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
+                                </div>
+                                <div class="review-card-content">
+                                    <h3 class="heading">Sarah T.</h3>
+                                    <p class="paragraph">"OMG these guys ROCK!! Showed up right when they said they
+                                        would and our house looks AMAZING!!! Way better than the neighbors lol! My kids
+                                        freaked out when they turned on all the lights! Def using them next year and
+                                        telling all my friends about them!!"</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mt-4">
+                            <div class="review-card">
+                                <div class="google-logo"><img src="./assets/images/google-icon.webp" alt=""></div>
+                                <div class="top-image"><img
+                                        src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
+                                        alt=""></div>
+                                <div class="review-stars">
+                                    <div class="review-star"><img
+                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
+                                    <div class="review-star"><img
+                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
+                                    <div class="review-star"><img
+                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
+                                    <div class="review-star"><img
+                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
+                                    <div class="review-star"><img
+                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
+                                </div>
+                                <div class="review-card-content">
+                                    <h3 class="heading">John Brown</h3>
+                                    <p class="paragraph">"These guys saved my Christmas dispaly! I tryed doing the
+                                        lights myself and it was a total mess. They came out next day and fixed
+                                        everything. My wife is stoked. Worth every penny and then some."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mt-4">
+                            <div class="review-card">
+                                <div class="google-logo"><img src="./assets/images/google-icon.webp" alt=""></div>
+                                <div class="top-image"><img
+                                        src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
+                                        alt=""></div>
+                                <div class="review-stars">
+                                    <div class="review-star"><img
+                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
+                                    <div class="review-star"><img
+                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
+                                    <div class="review-star"><img
+                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
+                                    <div class="review-star"><img
+                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
+                                    <div class="review-star"><img
+                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
+                                </div>
+                                <div class="review-card-content">
+                                    <h3 class="heading">Michael Alvarez</h3>
+                                    <p class="paragraph">"Joshua and his guys rock. Setup a permanent light system for
+                                        us and we're set for 5-10 years. Kids love it and we got many compliments from
+                                        neighbors."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-box">
+                    <button>Get My Free Estimate <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                            focusable="false" color="rgb(255, 255, 255)" style="
+                        user-select: none;
+                        width: 20px;
+                        height: 100%;
+                        display: inline-block;
+                        fill: rgb(255, 255, 255);
+                        color: rgb(255, 255, 255);
+                        flex-shrink: 0;
+                    ">
+                            <g color="rgb(255, 255, 255)" weight="bold">
+                                <path
+                                    d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z">
+                                </path>
+                            </g>
+                        </svg></button>
+                </div>
+
+                <div class="rating-box-section-three">
+                    <div class="left">
+                        <img src="https://lapeyreroofing.com/images/core/tree-left-black.png" alt="">
+                        <p><span class="bold">5-STAR</span> RATED BY <br> CHARLOTTE RESIDENTS</p>
+                        <img src="https://lapeyreroofing.com/images/core/tree-right-black.png" alt="">
+                    </div>
+                    <div class="right">
+                        <img src="https://lapeyreroofing.com/images/icons/protection-black.svg" alt="">
+                        <p><span class="bold">SATISFACTION</span><br> GUARANTEED</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="pb-5 fourth-section" id="services">
             <div class="standard_container">
                 <div class="tag-box">
                     <h5 class="tag-sec-2">OUR SERVICES</h5>
@@ -335,128 +690,67 @@
             </div>
         </section>
 
-        <section class="pb-5 fourth-section" id="reviews">
+        <section class="pb-5" id="comparison">
             <div class="standard_container">
                 <div class="tag-box">
-                    <h5 class="tag-sec-2">REVIEWS ・ WHAT CLIENTS SAY ABOUT US</h5>
+                    <h5 class="tag-sec-2">HOW WE COMPARE</h5>
                 </div>
                 <div class="top-content-box">
-                    <h2 class="heading">Why Our Clients Choose Us for Holiday Lights</h2>
+                    <h2 class="heading">Why Choose Us Over Others</h2>
                 </div>
 
-                <div class="review-cards mt-3">
-                    <div class="row position-relative">
-                        <div class="col-12 col-md-6 col-lg-4 mt-4">
-                            <div class="review-card">
-                                <div class="google-logo"><img src="./assets/images/google-icon.webp" alt=""></div>
-                                <div class="top-image"><img
-                                        src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
-                                        alt=""></div>
-                                <div class="review-stars">
-                                    <div class="review-star"><img
-                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
-                                    <div class="review-star"><img
-                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
-                                    <div class="review-star"><img
-                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
-                                    <div class="review-star"><img
-                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
-                                    <div class="review-star"><img
-                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
-                                </div>
-                                <div class="review-card-content">
-                                    <h3 class="heading">Sarah T.</h3>
-                                    <p class="paragraph">"OMG these guys ROCK!! Showed up right when they said they
-                                        would and our house looks AMAZING!!! Way better than the neighbors lol! My kids
-                                        freaked out when they turned on all the lights! Def using them next year and
-                                        telling all my friends about them!!"</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-4 mt-4">
-                            <div class="review-card">
-                                <div class="google-logo"><img src="./assets/images/google-icon.webp" alt=""></div>
-                                <div class="top-image"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541" alt=""></div>
-                                <div class="review-stars">
-                                    <div class="review-star"><img
-                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
-                                    <div class="review-star"><img
-                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
-                                    <div class="review-star"><img
-                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
-                                    <div class="review-star"><img
-                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
-                                    <div class="review-star"><img
-                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
-                                </div>
-                                <div class="review-card-content">
-                                    <h3 class="heading">John Brown</h3>
-                                    <p class="paragraph">"These guys saved my Christmas dispaly! I tryed doing the
-                                        lights myself and it was a total mess. They came out next day and fixed
-                                        everything. My wife is stoked. Worth every penny and then some."</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-4 mt-4">
-                            <div class="review-card">
-                                <div class="google-logo"><img src="./assets/images/google-icon.webp" alt=""></div>
-                                <div class="top-image"><img
-                                        src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
-                                        alt=""></div>
-                                <div class="review-stars">
-                                    <div class="review-star"><img
-                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
-                                    <div class="review-star"><img
-                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
-                                    <div class="review-star"><img
-                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
-                                    <div class="review-star"><img
-                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
-                                    <div class="review-star"><img
-                                            src="https://lapeyreroofing.com/images/icons/star-icon.svg" alt=""></div>
-                                </div>
-                                <div class="review-card-content">
-                                    <h3 class="heading">Michael Alvarez</h3>
-                                    <p class="paragraph">"Joshua and his guys rock. Setup a permanent light system for
-                                        us and we're set for 5-10 years. Kids love it and we got many compliments from
-                                        neighbors."</p>
-                                </div>
-                            </div>
+                <div class="comparison-wrapper">
+                    <div class="comparison-card">
+                        <div class="table-responsive">
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>FREE CUSTOM DESIGN</th>
+                                        <th>ALL SUPPLIES INCLUDED</th>
+                                        <th>100% WARRANTIED INSTALLATION</th>
+                                        <th>FREE MAINTENANCE CALLS INCLUDED</th>
+                                        <th>REMOVAL AND STORAGE INCLUDED</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="label negative">General Handymen</td>
+                                        <td class="center"><span class="icon cross">✖</span></td>
+                                        <td class="center"><span class="icon cross">✖</span></td>
+                                        <td class="center"><span class="icon cross">✖</span></td>
+                                        <td class="center"><span class="icon cross">✖</span></td>
+                                        <td class="center"><span class="icon cross">✖</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label negative">Lighting Contractors</td>
+                                        <td class="center"><span class="icon check">✔</span></td>
+                                        <td class="center"><span class="icon cross">✖</span></td>
+                                        <td class="center"><span class="icon cross">✖</span></td>
+                                        <td class="center"><span class="icon cross">✖</span></td>
+                                        <td class="center"><span class="icon cross">✖</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label negative">Lighting Companies</td>
+                                        <td class="center"><span class="icon check">✔</span></td>
+                                        <td class="center"><span class="icon check">✔</span></td>
+                                        <td class="center"><span class="icon cross">✖</span></td>
+                                        <td class="center"><span class="icon cross">✖</span></td>
+                                        <td class="center"><span class="icon check">✔</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label positive">Us</td>
+                                        <td class="center"><span class="icon check">✔</span></td>
+                                        <td class="center"><span class="icon check">✔</span></td>
+                                        <td class="center"><span class="icon check">✔</span></td>
+                                        <td class="center"><span class="icon check">✔</span></td>
+                                        <td class="center"><span class="icon check">✔</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-
-                <div class="button-box">
-                    <button>Get My Free Estimate <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
-                            focusable="false" color="rgb(255, 255, 255)" style="
-                        user-select: none;
-                        width: 20px;
-                        height: 100%;
-                        display: inline-block;
-                        fill: rgb(255, 255, 255);
-                        color: rgb(255, 255, 255);
-                        flex-shrink: 0;
-                    ">
-                            <g color="rgb(255, 255, 255)" weight="bold">
-                                <path
-                                    d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z">
-                                </path>
-                            </g>
-                        </svg></button>
-                </div>
-
-                <div class="rating-box-section-three">
-                    <div class="left">
-                        <img src="https://lapeyreroofing.com/images/core/tree-left-black.png" alt="">
-                        <p><span class="bold">5-STAR</span> RATED BY <br> CHARLOTTE RESIDENTS</p>
-                        <img src="https://lapeyreroofing.com/images/core/tree-right-black.png" alt="">
-                    </div>
-                    <div class="right">
-                        <img src="https://lapeyreroofing.com/images/icons/protection-black.svg" alt="">
-                        <p><span class="bold">SATISFACTION</span><br> GUARANTEED</p>
-                    </div>
-                </div>
-
             </div>
         </section>
 
@@ -608,9 +902,15 @@
 
                             <div class="check-box-main">
                                 <div class="check-boxes">
-                                    <label><input type="checkbox" name="services[]" value="Residential Christmas Light Installation"> Residential Christmas Light Installation</label><br>
-                                    <label><input type="checkbox" name="services[]" value="Commercial Christmas Light Installation"> Commercial Christmas Light Installation</label><br>
-                                    <label><input type="checkbox" name="services[]" value="Permanent Christmas Light Installation"> Permanent Christmas Light Installation</label><br>
+                                    <label><input type="checkbox" name="services[]"
+                                            value="Residential Christmas Light Installation"> Residential Christmas
+                                        Light Installation</label><br>
+                                    <label><input type="checkbox" name="services[]"
+                                            value="Commercial Christmas Light Installation"> Commercial Christmas Light
+                                        Installation</label><br>
+                                    <label><input type="checkbox" name="services[]"
+                                            value="Permanent Christmas Light Installation"> Permanent Christmas Light
+                                        Installation</label><br>
                                 </div>
                             </div>
 
@@ -637,15 +937,25 @@
 
     </div>
 
-    <div id="footer-placeholder"></div>
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src="./assets/js/script.js?ver=1.1"></script>
     <script src="./assets/js/load-component.js?ver=1.1"></script>
+    <script>
+        (function () {
+            var navbarEl = document.querySelector('.main-nav-box');
+            if (!navbarEl) return;
+            var handleScroll = function () {
+                if (window.scrollY > 0) {
+                    navbarEl.classList.add('scrolled');
+                } else {
+                    navbarEl.classList.remove('scrolled');
+                }
+            };
+            handleScroll();
+            window.addEventListener('scroll', handleScroll, { passive: true });
+        })();
+    </script>
 </body>
 
 </html>
