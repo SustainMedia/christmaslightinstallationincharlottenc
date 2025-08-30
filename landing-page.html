@@ -46,15 +46,17 @@
     .main-nav-box .navbar-toggler {
         border-color: none;
     }
+
     .main-nav-box .navbar-toggler:focus {
         box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
     }
+
     .main-nav-box .navbar-toggler-icon {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
     }
 
     .main-nav-box.scrolled {
-        background: rgba(0, 0, 0, 0.7) !important;
+        background: rgb(0 0 0 / 82%) !important;
         box-shadow: 0px 0px 50px -22px #000;
     }
 
@@ -160,6 +162,19 @@
         color: #1b2e3a;
     }
 
+    /* Mobile comparison card styles (hidden by default) */
+    .comparison-mobile {
+        display: none;
+    }
+
+    .comparison-mobile .icon.check {
+        color: #0a8a33;
+    }
+
+    .comparison-mobile .icon.cross {
+        color: #1b2e3a;
+    }
+
     @media (max-width: 768px) {
         .comparison-card {
             padding: 8px;
@@ -181,6 +196,119 @@
 
         #navbarSupportedContent {
             padding-top: 15px;
+        }
+
+        /* Hide desktop table and show mobile cards */
+        #comparison .table-responsive {
+            display: none;
+        }
+
+        .comparison-mobile {
+            display: block;
+        }
+
+        .comparison-mobile .provider-card {
+            background: #ffffff;
+            border-radius: 6px;
+            box-shadow: none;
+            padding: 0;
+            margin: 16px 0;
+            border: 2px solid #1b2e3a;
+        }
+
+        .comparison-mobile .provider-name {
+            font-weight: 800;
+            color: #1b2e3a;
+            text-align: center;
+            padding: 12px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            margin: 0;
+            background: #eef3f7;
+            border-bottom: 2px solid #cfd8df;
+            text-transform: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+
+
+        /* two-column grid */
+        .comparison-mobile .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .comparison-mobile .left-col {
+            border-right: 2px solid #cfd8df;
+        }
+
+        .comparison-mobile .right-col {
+            display: grid;
+            grid-template-rows: 44px repeat(5, 44px);
+        }
+
+        .comparison-mobile .spacer {
+            height: 44px;
+            border-bottom: 2px solid #cfd8df;
+            background: #eef3f7;
+        }
+
+        .comparison-mobile .label-row,
+        .comparison-mobile .value-row {
+            border-bottom: 2px solid #cfd8df;
+        }
+
+        .comparison-mobile .value-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .comparison-mobile .value-row:last-child,
+        .comparison-mobile .label-row:last-child {
+            border-bottom: 0;
+        }
+
+        .comparison-mobile .label-row {
+            font-weight: 800;
+            color: #002a3a;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            padding: 0 14px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 44px;
+        }
+
+        .comparison-mobile .label-row.row-a {
+            background: #f7fbff;
+        }
+
+        .comparison-mobile .label-row.row-b {
+            background: #eef3f7;
+        }
+
+        .comparison-mobile .value-row.row-a {
+            background: #f7fbff;
+        }
+
+        .comparison-mobile .value-row.row-b {
+            background: #eef3f7;
+        }
+
+        .comparison-mobile .icon {
+            font-weight: 900;
+            font-size: 18px;
+        }
+    }
+
+    @media (max-width: 419px) {
+        .comparison-mobile .label-row {
+            font-size: 10px;
         }
     }
 </style>
@@ -256,8 +384,8 @@
                             <source src="./assets/video/bg-video-optimized.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video> -->
-                        <img src="./assets/images/about-image.jpg" alt="Background image for mobile" style="width: 100%;"
-                            class="background-image">
+                        <img src="./assets/images/about-image.jpg" alt="Background image for mobile"
+                            style="width: 100%;height: 100%;object-fit: cover;" class="background-image">
                     </div>
                 </div>
                 <div class="service-bg-dark"></div>
@@ -276,12 +404,8 @@
                                 </div>
                             </div>
                         </div>
-                        <h1 class="first-section-heading">Best Christmas Light <span class="green">Installation</span>
-                        </h1>
-                        <div class="first-section-para">Welcome to Christmas Light Installation – your trusted experts
-                            in creating beautiful and festive holiday displays. We help homeowners and businesses
-                            transform their spaces with dazzling lights that spread joy and capture the spirit of the
-                            season.</div>
+                        <h1 class="first-section-heading">Expert Christmas Light Installation in <span class="green">Charlotte</span></h1>
+                        <div class="first-section-para">Welcome to Groundsmen Christmas Lights! We specialize in creating beautiful and festive holiday displays. We help homeowners and businesses in the greater Charlotte area transform their spaces with dazzling lights that spread joy and capture the spirit of the season</div>
                         <div class="first-section-tags">
                             <div class="tag">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" focusable="false"
@@ -749,6 +873,92 @@
                                 </tbody>
                             </table>
                         </div>
+                        <!-- Mobile stacked comparison: two-column layout -->
+                        <div class="comparison-mobile" aria-label="Comparison cards">
+                            <div class="provider-card">
+                                <div class="two-col">
+                                    <div class="left-col">
+                                        <div class="spacer"></div>
+                                        <div class="label-row row-a">FREE CUSTOM DESIGN</div>
+                                        <div class="label-row row-b">ALL SUPPLIES INCLUDED</div>
+                                        <div class="label-row row-a">100% WARRANTIED INSTALLATION</div>
+                                        <div class="label-row row-b">FREE MAINTENANCE CALLS INCLUDED</div>
+                                        <div class="label-row row-a">REMOVAL AND STORAGE INCLUDED</div>
+                                    </div>
+                                    <div class="right-col">
+                                        <div class="provider-name">General Handymen</div>
+                                        <div class="value-row row-a"><span class="icon cross">✖</span></div>
+                                        <div class="value-row row-b"><span class="icon cross">✖</span></div>
+                                        <div class="value-row row-a"><span class="icon cross">✖</span></div>
+                                        <div class="value-row row-b"><span class="icon cross">✖</span></div>
+                                        <div class="value-row row-a"><span class="icon cross">✖</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="provider-card">
+                                <div class="two-col">
+                                    <div class="left-col">
+                                        <div class="spacer"></div>
+                                        <div class="label-row row-a">FREE CUSTOM DESIGN</div>
+                                        <div class="label-row row-b">ALL SUPPLIES INCLUDED</div>
+                                        <div class="label-row row-a">100% WARRANTIED INSTALLATION</div>
+                                        <div class="label-row row-b">FREE MAINTENANCE CALLS INCLUDED</div>
+                                        <div class="label-row row-a">REMOVAL AND STORAGE INCLUDED</div>
+                                    </div>
+                                    <div class="right-col">
+                                        <div class="provider-name">Lighting Contractors</div>
+                                        <div class="value-row row-a"><span class="icon check">✔</span></div>
+                                        <div class="value-row row-b"><span class="icon cross">✖</span></div>
+                                        <div class="value-row row-a"><span class="icon cross">✖</span></div>
+                                        <div class="value-row row-b"><span class="icon cross">✖</span></div>
+                                        <div class="value-row row-a"><span class="icon cross">✖</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="provider-card">
+                                <div class="two-col">
+                                    <div class="left-col">
+                                        <div class="spacer"></div>
+                                        <div class="label-row row-a">FREE CUSTOM DESIGN</div>
+                                        <div class="label-row row-b">ALL SUPPLIES INCLUDED</div>
+                                        <div class="label-row row-a">100% WARRANTIED INSTALLATION</div>
+                                        <div class="label-row row-b">FREE MAINTENANCE CALLS INCLUDED</div>
+                                        <div class="label-row row-a">REMOVAL AND STORAGE INCLUDED</div>
+                                    </div>
+                                    <div class="right-col">
+                                        <div class="provider-name">Lighting Companies</div>
+                                        <div class="value-row row-a"><span class="icon check">✔</span></div>
+                                        <div class="value-row row-b"><span class="icon check">✔</span></div>
+                                        <div class="value-row row-a"><span class="icon cross">✖</span></div>
+                                        <div class="value-row row-b"><span class="icon cross">✖</span></div>
+                                        <div class="value-row row-a"><span class="icon check">✔</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="provider-card">
+                                <div class="two-col">
+                                    <div class="left-col">
+                                        <div class="spacer"></div>
+                                        <div class="label-row row-a">FREE CUSTOM DESIGN</div>
+                                        <div class="label-row row-b">ALL SUPPLIES INCLUDED</div>
+                                        <div class="label-row row-a">100% WARRANTIED INSTALLATION</div>
+                                        <div class="label-row row-b">FREE MAINTENANCE CALLS INCLUDED</div>
+                                        <div class="label-row row-a">REMOVAL AND STORAGE INCLUDED</div>
+                                    </div>
+                                    <div class="right-col">
+                                        <div class="provider-name">Us</div>
+                                        <div class="value-row row-a"><span class="icon check">✔</span></div>
+                                        <div class="value-row row-b"><span class="icon check">✔</span></div>
+                                        <div class="value-row row-a"><span class="icon check">✔</span></div>
+                                        <div class="value-row row-b"><span class="icon check">✔</span></div>
+                                        <div class="value-row row-a"><span class="icon check">✔</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -937,8 +1147,11 @@
 
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
     <script src="./assets/js/script.js?ver=1.1"></script>
     <script src="./assets/js/load-component.js?ver=1.1"></script>
     <script>
