@@ -16,6 +16,14 @@
     <link rel="stylesheet" href="./assets/css/nav-style.css?ver=1.1">
     <link rel="stylesheet" href="./assets/css/footer-style.css?ver=1.1">
     <link rel="stylesheet" href="./assets/css/index-page.css?ver1.1">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16881071159"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-16881071159');
+    </script>
 </head>
 <style>
     .review-card .review-card-content {
@@ -475,6 +483,10 @@
                             <div class="form-first-heading">Get a <a href="#">FREE</a></div>
                             <div class="form-second-heading">Christmas Light Installation Estimate Today!</div>
                             <div class="input-boxes">
+                                <input type="text" id="schedule_name" placeholder="Name*" required>
+                                <input type="text" id="schedule_address" placeholder="Enter Full Address*" required>
+                                <input type="email" id="schedule_email" placeholder="Email*" required>
+                                <input type="tel" id="schedule_phone" placeholder="Phone Number*" required>
                                 <select id="schedule_service" required>
                                     <option selected disabled>Choose Service*</option>
                                     <option value="Residential Christmas Light Installation">Residential Christmas Light
@@ -484,12 +496,8 @@
                                     <option value="Permanent Christmas Light Installation">Permanent Christmas Light
                                         Installation</option>
                                 </select>
-                                <input type="text" id="schedule_address" placeholder="Enter Full Address*" required>
-                                <input type="text" id="schedule_name" placeholder="Name*" required>
-                                <input type="email" id="schedule_email" placeholder="Email*" required>
-                                <input type="tel" id="schedule_phone" placeholder="Phone Number*" required>
                                 <div class="schedule_message"></div>
-                                <button type="submit" class="scheduleBtn" id="schedule_btn_form">Schedule FREE
+                                <button type="submit" class="scheduleBtn" id="schedule_btn_form_2">Schedule FREE
                                     Estimate</button>
                                 <div class="first-section-form-last-box">
                                     <div class="first-section-form-last-box-left">
@@ -1168,6 +1176,64 @@
             handleScroll();
             window.addEventListener('scroll', handleScroll, { passive: true });
         })();
+
+        $(document).ready(function () {
+            $('#schedule_btn_form_2').on('click', function (e) {
+                e.preventDefault();
+
+                const service = $('#schedule_service').val();
+                const address = $('#schedule_address').val().trim();
+                const name = $('#schedule_name').val().trim();
+                const email = $('#schedule_email').val().trim();
+                const phone = $('#schedule_phone').val().trim();
+                const messageDiv = $('.schedule_message');
+
+                // Validate required fields
+                if (!service || service === "Choose Service*" || !address || !name || !email || !phone) {
+                    messageDiv.text('Please fill in all the required fields.').css('color', 'red');
+                    return;
+                }
+
+                // Validation for email and phone
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const phoneRegex = /^\+?[0-9\s\-()]{7,20}$/;
+
+                if (!emailRegex.test(email)) {
+                    messageDiv.text('Please enter a valid email address.').css('color', 'red');
+                    return;
+                }
+
+                if (!phoneRegex.test(phone)) {
+                    messageDiv.text('Please enter a valid phone number.').css('color', 'red');
+                    return;
+                }
+
+                // Send AJAX request
+                $.ajax({
+                    url: './assets/php/submit-form-schedule.php',
+                    type: 'POST',
+                    data: {
+                        service: service,
+                        address: address,
+                        name: name,
+                        email: email,
+                        phone: phone
+                    },
+                    success: function (response) {
+                        messageDiv.text('Appointment scheduled successfully!').css('color', '#b8ffb8');
+                        $('#schedule_service').val('Choose Service*');
+                        $('#schedule_address, #schedule_name, #schedule_email, #schedule_phone').val('');
+
+                        setTimeout(() => {
+                            window.location.href = 'thank-you.html';
+                        }, 2000);
+                    },
+                    error: function () {
+                        messageDiv.text('An error occurred. Please try again later.').css('color', 'red');
+                    }
+                });
+            });
+        });
     </script>
 </body>
 

@@ -1,6 +1,6 @@
 function adjustMainContentPadding() {
     const currentPath = window.location.pathname.toLowerCase();
-    if (currentPath.endsWith('/landing-page.html') || currentPath.endsWith('landing-page.html')) {
+    if (currentPath.endsWith('/christmas-light-installation.html') || currentPath.endsWith('christmas-light-installation.html')) {
         return;
     }
 
